@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "ErgoAssist",
+  "name": "ErgoAssist for Remote Workers",
   "description": "This extension reminds you to check your posture and perform stretch exercises at regular intervals.",
   "version": "1.0",
   "icons": {
