@@ -1,3 +1,28 @@
+chrome.action.onClicked.addListener((tab) => {
+  // Toggle pause state when extension icon is clicked
+  chrome.storage.sync.get('isPaused', (data) => {
+    const isPaused = !data.isPaused;
+    chrome.storage.sync.set({ isPaused });
+    if (isPaused) {
+      chrome.alarms.clear('postureReminder');
+    } else {
+      setReminder();
+    }
+  });
+});
+
+function setReminder() {
+  // Only set the alarm if the extension is not paused
+  chrome.storage.sync.get('isPaused', (data) => {
+    if (!data.isPaused) {
+      chrome.storage.sync.get(['reminderInterval'], (result) => {
+        const interval = result.reminderInterval || 30;
+        chrome.alarms.create('postureReminder', { delayInMinutes: parseFloat(interval) });
+      });
+    }
+  });
+}
+
 // Register the service worker
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.get('reminderInterval', (data) => {

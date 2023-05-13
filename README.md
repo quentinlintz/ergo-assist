@@ -18,6 +18,10 @@ ErgoAssist provides easy-to-follow stretching routines that you can do right at 
 
 ErgoAssist allows you to customize the frequency of your reminders and stretch breaks to fit your work schedule.
 
+### Pause Functionality
+
+Need to focus on something without interruptions? ErgoAssist comes with a Pause feature. Just hit the "Pause" button to stop the reminders. When you're ready to start again, simply click the button again to resume.
+
 ## Installation
 
 1. Download or clone this repository to your local machine.
@@ -27,7 +31,7 @@ ErgoAssist allows you to customize the frequency of your reminders and stretch b
 
 ## Usage
 
-After installing ErgoAssist, you'll see its icon in your browser toolbar. Click the icon to open the popup, where you can start a stretching break or adjust your reminder settings.
+After installing ErgoAssist, you'll see its icon in your browser toolbar. Click the icon to open the popup, where you can start a stretching break, adjust your reminder settings, or pause the reminders.
 
 ## Permissions
 

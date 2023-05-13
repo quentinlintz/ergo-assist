@@ -9,6 +9,7 @@ body {
 
 h1 {
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
 p {
@@ -21,7 +22,7 @@ button {
   padding: 10px;
   color: #000;
   background-color: #87cefa;
-  border: none;
+  border: 1px solid #000;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -31,23 +32,31 @@ button:hover {
   background-color: #ffb6c1;
 }
 
-#alarmStatus {
-  margin-bottom: 20px;
+input[type='number'] {
+  width: 45%;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  float: left;
 }
 
 #startStretchingButton {
   margin-bottom: 20px;
 }
 
-#intervalSetting {
-  margin-bottom: 20px;
+#pauseButton {
+  width: 100%;
+  margin: 10px 0;
 }
 
-input[type='number'] {
-  width: 60px;
-  text-align: center;
+#saveButton {
+  width: 45%;
+  float: right;
 }
 
-.intervalText {
-  font-size: 14px;
+#reminderIntervalInput,
+#saveButton {
+  display: inline-block;
 }

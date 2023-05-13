@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveButton = document.getElementById('saveButton');
   const startStretchingButton = document.getElementById('startStretchingButton');
   const timeLeftDisplay = document.getElementById('timeLeftDisplay');
+  const pauseButton = document.getElementById('pauseButton');
 
   // Display the reminder interval
-  chrome.storage.sync.get('reminderInterval', (data) => {
+  chrome.storage.sync.get(['reminderInterval', 'isPaused'], (data) => {
     reminderIntervalInput.value = data.reminderInterval || '30';
+    pauseButton.textContent = data.isPaused ? 'Start' : 'Pause';
   });
 
   // Function to display the time left until the next alarm
@@ -36,5 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle the "Start Stretching" button click
   startStretchingButton.addEventListener('click', () => {
     chrome.tabs.create({ url: 'https://www.youtube.com/watch?v=3sEeVJEXTfY' });
+  });
+
+  // Handle the "Pause/Start" button click
+  pauseButton.addEventListener('click', () => {
+    chrome.storage.sync.get('isPaused', (data) => {
+      const isPaused = !data.isPaused;
+      chrome.storage.sync.set({ isPaused });
+      pauseButton.textContent = isPaused ? 'Start' : 'Pause';
+
+      if (isPaused) {
+        chrome.alarms.clear('postureReminder');
+      } else {
+        const reminderInterval = reminderIntervalInput.value;
+        chrome.alarms.create('postureReminder', { delayInMinutes: parseFloat(reminderInterval) });
+      }
+    });
   });
 });
