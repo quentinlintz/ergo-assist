@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle the "Start Stretching" button click
   startStretchingButton.addEventListener('click', () => {
-    chrome.tabs.create({ url: 'https://www.youtube.com/watch?v=3sEeVJEXTfY' });
+    chrome.tabs.create({ url: 'https://www.youtube.com/watch?v=TfuWjmdxMvU' });
   });
 
   // Handle the "Pause/Start" button click
